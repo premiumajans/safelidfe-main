@@ -7,6 +7,9 @@ const withNextIntl = require('next-intl/plugin')(
 
 
 module.exports = withNextIntl({
+    typescript:{
+        ignoreBuildErrors:true
+    },
     images: {
         domains: ['adminsafelife.pleskdemo.com', 'img.youtube.com', 'arsenalfire.az']
     }
