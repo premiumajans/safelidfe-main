@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "about": "Haqqımızda",
+    "services": "Xidmətlər",
+    "products": "Məhsullar",
+    "projects": "Layihələr",
+    "gallery": "Qalereya",
+    "partners": "Partnyorlar",
+    "contact": "Əlaqə",
+    "search": "Axtar...",
+    "about_company": "Şirkət haqqında",
+    "our_missions": "Məqsəd və missiyamız",
+    "sosial_response": "Sosial məsuliyyət",
+    "sertificates_licences": "Sertifikat və lisenziyalar",
+    "careers": "Karyera  və vakansiya",
+    "photo_gallery": "Foto qalereya",
+    "video_gallery":"Video qalereya",
+    "address": "Ünvan",
+    "phone": "Telefon",
+    "email": "Email",
+    "search_dotless": "Axtar",
+    "search_words": "Axtarış sözü",
+    "search_params": "Axtarışın parametirləri",
+    "total": "Ümumi: {count} nəticə tapıldı."
+  }
+}

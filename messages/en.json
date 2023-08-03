@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "about": "About",
+    "services": "Services",
+    "products": "Products",
+    "projects": "Projects",
+    "gallery": "Gallery",
+    "partners": "Partners",
+    "contact": "Contact",
+    "search": "Search...",
+    "about_company": "About the Company",
+    "our_missions": "Our Mission and Vision",
+    "sosial_response": "Social Responsibility",
+    "sertificates_licences": "Certificates and Licenses",
+    "careers": "Careers and Vacancies",
+    "photo_gallery": "Photo Gallery",
+    "video_gallery": "Video Gallery",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "search_dotless": "Search",
+    "search_words": "Search Words",
+    "search_params": "Search Parameters",
+    "total": "Total: {count}  results found."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "Index": {
+    "about": "О нас",
+    "services": "Услуги",
+    "products": "Продукты",
+    "projects": "Проекты",
+    "gallery": "Галерея",
+    "partners": "Партнеры",
+    "contact": "Контакт",
+    "search": "Поиск...",
+    "about_company": "О компании",
+    "our_missions": "Наша миссия и цели",
+    "sosial_response": "Социальная ответственность",
+    "sertificates_licences": "Сертификаты и лицензии",
+    "careers": "Карьера и вакансии",
+    "photo_gallery": "Фото галерея",
+    "video_gallery": "Видео галерея",
+    "address": "Адрес",
+    "phone": "Телефон",
+    "email": "Email",
+    "search_dotless": "Искать",
+    "search_words": "Поисковые слова",
+    "search_params": "Параметры поиска",
+    "total": "Всего найдено: {count} результатов."
+  }
+}
