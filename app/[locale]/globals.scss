@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@media only screen and (max-width: 767px) {
+  /* Replace 767px with your desired mobile breakpoint */
+  body {
+    width: 1200px;
+    margin: 0 auto; /* Center the content */
+  }
+}
+
+#system .item > header h1.title {
+  margin-bottom: auto !important;
+  padding-bottom: 60px;
+}
+
+.clearfix:before, .clearfix:after {
+  content: '' !important;
+  display: none !important;
+}
+
 .contact_text {
   max-width: 200px;
 }

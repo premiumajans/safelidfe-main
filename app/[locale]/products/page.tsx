@@ -45,10 +45,10 @@ const PageContent = ({product}:{product:any}) => {
                                 </header>
 
 
-                                <div className="content clearfix" style={{display:"flex", gap:20}}>
+                                <div className="content clearfix" style={{display:"flex", gap:20,flexWrap:"wrap"}}>
                                     {typeof product !== 'string' && product.map((item:any) => {
                                         const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                        return <Link key={item.id} href={`/products/${item.id}`}>
+                                        return <Link  key={item.id} href={`/products/${item.id}`}>
                                             <a
                                                 href=""></a>
                                             <h5 style={{marginTop: "0px", fontWeight:'bold'}}><a
@@ -57,7 +57,6 @@ const PageContent = ({product}:{product:any}) => {
                                     })}
 
                                 </div>
-
 
                             </article>
 

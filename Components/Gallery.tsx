@@ -18,7 +18,12 @@ const Gallery = ({imgs}) => {
             })}
             sourceIndex={slideIndex}/>
 
-        <div className="wk-gallery wk-gallery-wall clearfix round margin ">
+        <div style={{
+            display:'flex',
+            gap:10,
+            flexWrap:"wrap",
+            margin:15
+        }} className="wk-gallery wk-gallery-wall clearfix round margin" >
             {imgs.map((item:any) => {
                 return <a key={item.id} className="spotlight"
                           onClick={(item, index) => {

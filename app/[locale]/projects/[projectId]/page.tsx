@@ -29,7 +29,7 @@ const PageContent = ({project}: { project: any }) => {
 
                     <section id="breadcrumbs">
                         <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/projects">{t('projects')}</Link><strong>{translatedItem.name}</strong></div>
+                            href="/projects?page=1">{t('projects')}</Link><strong>{translatedItem?.name}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">
@@ -44,7 +44,7 @@ const PageContent = ({project}: { project: any }) => {
 
                                     <h1 className="title">
                                         <a href=""
-                                           title="Gilan yaşayış Park Akademiya">{translatedItem.name}</a>
+                                           title="Gilan yaşayış Park Akademiya">{translatedItem?.name}</a>
                                     </h1>
 
 
@@ -67,7 +67,7 @@ const PageContent = ({project}: { project: any }) => {
                                     }}
                                                                  src={process.env['NEXT_MAIN_PATH_WITHOUT_API'] + project.photo}
                                                                  alt="5"/>
-                                        {parse(translatedItem.description)}</p>
+                                        {parse(translatedItem?.description || '')}</p>
                                 </div>
 
 

@@ -6,9 +6,9 @@ import HeaderSearch from "@/Components/HeaderSearch";
 
 
 const Header = async () => {
-    const service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'service', {cache: 'no-store',})).json()).service
-    const product = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'product', {cache: 'no-store',})).json()).product
-    const settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings', {cache: 'reload',})).json())
+    const service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'service')).json()).service
+    const product = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'product')).json()).product
+    const settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings')).json())
 
     return <HeaderContent service={service} product={product} settings={settings}/>
 }
@@ -166,7 +166,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className="level1 item131"><Link href="/projects"
+                                        <li className="level1 item131"><Link href="/projects?page=1"
                                                                              className="level1"><span>{t('projects')}</span></Link>
                                         </li>
 
@@ -220,65 +220,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
             <div>
                 <div>
 
-                    <section id="top-a" className="wrapper grid-block">
-                        <div className="grid-box width100 grid-h">
-                            <div className="module   deepest">
 
-
-                                <div id="slideshow-1-64c101b643aa3" className="wk-slideshow wk-slideshow-default"
-                                     data-widgetkit="slideshow"
-                                     data-options='{"style":"default","autoplay":1,"interval":3000,"width":960,"height":264,"duration":500,"index":0,"order":"default","navigation":1,"buttons":0,"slices":20,"animated":"randomFx","caption_animation_duration":500}'>
-                                    <div>
-                                        <ul className="slides">
-
-                                            <li>
-                                                <article className="wk-content clearfix"><img
-                                                    src="https://arsenalfire.az/images/fpss/SL-slide-1.jpg"
-                                                    alt="SL slide 1"/></article>
-                                            </li>
-                                            <li>
-                                                <article className="wk-content clearfix"><img
-                                                    src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEHAAIALAAAAAABAAEAAAICVAEAOw=="
-                                                    data-src="/images/fpss/SL-slide-2.jpg" alt="SL slide 2"/></article>
-                                            </li>
-                                            <li>
-                                                <article className="wk-content clearfix"><img
-                                                    src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEHAAIALAAAAAABAAEAAAICVAEAOw=="
-                                                    data-src="/images/fpss/SL-slide-3.jpg" alt="SL slide 3"/></article>
-                                            </li>
-                                            <li>
-                                                <article className="wk-content clearfix"><img
-                                                    src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEHAAIALAAAAAABAAEAAAICVAEAOw=="
-                                                    data-src="/images/fpss/Slide-nov-4.jpg" alt="Slide nov 4"/>
-                                                </article>
-                                            </li>
-                                            <li>
-                                                <article className="wk-content clearfix"><img
-                                                    src="data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEHAAIALAAAAAABAAEAAAICVAEAOw=="
-                                                    data-src="/images/fpss/Slide-nov-5.jpg" alt="Slide nov 5"/>
-                                                </article>
-                                            </li>
-                                        </ul>
-                                        <div className="caption"></div>
-                                        <ul className="captions">
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                    </div>
-                                    <ul className="nav">
-                                        <li><span></span></li>
-                                        <li><span></span></li>
-                                        <li><span></span></li>
-                                        <li><span></span></li>
-                                        <li><span></span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
 
                 </div>
             </div>

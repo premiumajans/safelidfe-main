@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {useLocale, useTranslations} from "next-intl";
 import parse from "html-react-parser";
+import Pagination from "@/Components/Pagination/Pagination";
 
 const Page = async () => {
     const sertificate = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'sertificate',{cache:'no-store',})).json()).sertificate
@@ -38,7 +39,7 @@ const PageContent =  ({sertificate}:{sertificate:any}) => {
                                 {typeof sertificate !== "string" && sertificate.map((item:any) => {
                                     const translatedItem = item.translations.find((item:any) => item.locale === locale)
                                     return <Link key={item.id} href={`/sertificates/${item.id}`}>
-                                        <div  className="grid-box width50">
+                                        <div  className="grid-box width25">
                                             <article className="item"
                                             >
 
@@ -69,7 +70,6 @@ const PageContent =  ({sertificate}:{sertificate:any}) => {
                             </div>
                         </div>
                     </section>
-
 
                 </div>
 

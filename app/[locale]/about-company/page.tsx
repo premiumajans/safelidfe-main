@@ -4,15 +4,34 @@ import parse from "html-react-parser";
 
 
 
+export  async  function generateMetadata({params:{locale}}) {
+
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+
+    const translatedItem = about[0] ? about[0].translations.find((item: any) => item.locale === locale) : ''
+
+    return {
+        title: translatedItem?.title,
+
+    }
+}
+
+
+
 const Page = async () => {
     const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
-    return <PageContent about={about} />
+    return <>
+        <PageContent about={about} />
+    </>
+
 }
 
 const PageContent = ({about}:{about:any}) => {
     const t = useTranslations('Index')
     const locale = useLocale()
     return <>
+
+
 
         <div id="block-main">
 

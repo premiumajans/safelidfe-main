@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Pagination = ({data, pagination}: {
     data: any,
-    pagination:any
+    pagination: any
 }) => {
     const generatePagination = (result: any) => {
 
@@ -15,18 +15,6 @@ const Pagination = ({data, pagination}: {
             if (length <= 2 || Math.abs(pagination - i) <= maxVisiblePages || i === 1 || i === length) {
                 paginationList.push(
                     <Link href={`/projects?page=${i}`} title={i.toString()}>{i}</Link>
-          //           <li className={i === pagination ? 'active' : ''} key={i}>
-          // <span
-          //     onClick={() => {
-          //         setPagination!(i);
-          //         window.scrollTo(0, 0);
-          //     }}
-          //     style={{ cursor: 'pointer' }}
-          //     className="page-numbers"
-          // >
-          //   {i}
-          // </span>
-          //           </li>
                 );
             } else if (paginationList[paginationList.length - 1]?.key !== 'dots') {
                 paginationList.push(<li key="dots">...</li>);
@@ -37,35 +25,43 @@ const Pagination = ({data, pagination}: {
     };
 
 
-
-
     return <>
         {Math.ceil(data.length / 10) > 1 ?
-            <div className="pagination"><strong>1</strong>
-                <Link className="next"
-                      href={`/projects?page=${+pagination - 1}`}
-                      title="»">{"<"}</Link>
+            <div className="pagination">
+                <Link className="previous"
+                      href={`/projects?page=${(+pagination - 1 >= 1 ) ? +pagination - 1 : pagination }`}
+                      title="<"> {"<"} </Link>
                 {generatePagination(data)}
+
                 <Link className="next"
-                      href={`/projects?page=${+pagination + 1}`}
+                      href={`/projects?page=${(+pagination + 1 <= Math.ceil(data.length / 10) ) ? +pagination + 1 : pagination }`}
                       title="»"> {">"} </Link>
             </div>
-           : '' }
+            : ''}
 
     </>
 };
 
 export default Pagination;
 
-{/*<div className="pagination"><strong>1</strong><a className=""*/}
-{/*                                                 href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=9"*/}
-{/*                                                 title="2">2</a><a className=""*/}
-{/*                                                                   href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=18"*/}
-{/*                                                                   title="3">3</a><a*/}
-{/*    className="next"*/}
-{/*    href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=9"*/}
-{/*    title="»">»</a><a className="last"*/}
-{/*                      href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=18"*/}
+{/*<div className="pagination"><strong>1</strong><a className=""*/
+}
+{/*                                                 href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=9"*/
+}
+{/*                                                 title="2">2</a><a className=""*/
+}
+{/*                                                                   href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=18"*/
+}
+{/*                                                                   title="3">3</a><a*/
+}
+{/*    className="next"*/
+}
+{/*    href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=9"*/
+}
+{/*    title="»">»</a><a className="last"*/
+}
+{/*                      href="/web/20171027175121/http://safelife.az/index.php/layihlr.html?start=18"*/
+}
 // {/*                      title="Axırıncı">Axırıncı</a></div>
 
 

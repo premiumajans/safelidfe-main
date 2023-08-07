@@ -3,7 +3,7 @@ import {useLocale, useTranslations} from "next-intl";
 import React from "react";
 
 const Footer = async () => {
-    const settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings', {cache: 'reload',})).json())
+    const settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings')).json())
 
     return <FooterContent settings={settings}/>
 }

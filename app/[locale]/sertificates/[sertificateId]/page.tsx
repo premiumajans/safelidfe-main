@@ -4,6 +4,25 @@ import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
 
 
+
+export async function generateMetadata(
+    {params: {sertificateId,locale}}: { params: { sertificateId: any, locale:string } },
+) {
+
+    // fetch data
+    const sertificate = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `sertificate/${sertificateId}`, {cache: 'no-store',})).json()).sertificate
+
+    const translatedItem = sertificate.translations.find((item: any) => item.locale === locale)
+
+    return {
+        title: translatedItem.name,
+        openGraph: {
+            images: [sertificate.photo],
+        },
+    }
+}
+
+
 const Page = async ({params: {sertificateId}}: { params: { sertificateId: any } }) => {
     const sertificate = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `sertificate/${sertificateId}`, {cache: 'no-store',})).json()).sertificate
 
@@ -19,6 +38,8 @@ const PageContent = ({sertificate}: { sertificate: any }) => {
 
 
     return <>
+
+
         <div id="block-main">
 
             <div id="main" className="wrapper grid-block">
@@ -28,7 +49,7 @@ const PageContent = ({sertificate}: { sertificate: any }) => {
 
                     <section id="breadcrumbs">
                         <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about-company">{t('about')}</Link><strong>{translatedItem.name}</strong></div>
+                            href="/sertificates">{t('sertificates_licences')}</Link><strong>{translatedItem.name}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">

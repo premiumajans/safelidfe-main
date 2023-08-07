@@ -3,7 +3,7 @@ import Link from "next/link";
 import {useLocale, useTranslations} from "next-intl";
 import Pagination from "@/Components/Pagination/Pagination";
 
-const Page = async ({params:{page}}:{params:{page:number}}) => {
+const Page = async ({searchParams:{page}}:{searchParams:{page:number}}) => {
     const project = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'project', {cache: 'no-store',})).json()).project
 
     return <PageContent project={project} page={page}/>
@@ -37,16 +37,18 @@ const PageContent = ({project,page }: { project: any, page:number }) => {
 
                             <div className="items items-col-12 grid-block">
 
-                                {typeof project !== 'string' ? project.map((item: any) => {
+
+                                {typeof project !== 'string' ? project.slice((page - 1) * 10, (page - 1) * 10 + 10).map((item: any) => {
                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
                                     return <Link key={item.id} href={`/projects/${item.id}`}>
                                         <div className="grid-box width33">
                                             <article className="item">
 
                                                 <header>
-                                                    <h1 className="title">
+                                                    <h1 className="title" style={{
+                                                    }}>
                                                         <a href="/web/20171027175121/http://safelife.az/index.php/layihlr/141-gilan-yaay-park-akademiya.html"
-                                                           title={item.id}>{translatedItem.name}</a>
+                                                           title={item.id}>{translatedItem?.name}</a>
                                                     </h1>
                                                 </header>
 

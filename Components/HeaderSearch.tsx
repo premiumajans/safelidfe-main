@@ -1,16 +1,21 @@
+'use client'
 
-import {useTranslations} from "next-intl";
+import {useRef} from "react";
+import {useRouter} from "next/navigation";
 
 const HeaderSearch = () => {
+    const {push} = useRouter()
+    const searchRef = useRef()
 
-
-    const t = useTranslations("Index")
 
     return <>
         <div id="search">
-            <form id="searchbox" action="/search" method="get"
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                push(`/search/${searchRef.current!.value}`)
+            }} id="searchbox" action="/search" method="get"
                   role="search">
-                <input type="text"  name="keywords" placeholder={t('search')}/>
+                <input ref={searchRef} type="text" name="keywords"/>
                 <button type="reset" value="Reset"></button>
             </form>
         </div>

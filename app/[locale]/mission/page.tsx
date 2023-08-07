@@ -3,6 +3,19 @@ import {useLocale, useTranslations} from "next-intl";
 import parse from "html-react-parser";
 import Link from "next/link";
 
+export  async  function generateMetadata({params:{locale}}) {
+
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+
+    const translatedItem = about[1] ? about[1].translations.find((item: any) => item.locale === locale) : ''
+
+    return {
+        title: translatedItem?.title,
+
+    }
+}
+
+
 
 
 const Page = async () => {
@@ -22,7 +35,7 @@ const PageContent = ({about}:{about:any}) => {
 
                     <section id="breadcrumbs">
                         <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about">{t('about')}</Link><strong>{t('our_missions')}</strong>
+                            href="/about-company">{t('about')}</Link><strong>{t('our_missions')}</strong>
                         </div>
                     </section>
 

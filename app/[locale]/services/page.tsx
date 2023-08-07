@@ -23,8 +23,8 @@ const PageContent =  ({service}:{service:any}) => {
 
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/services">{t('services')}</Link></div>
+                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><strong
+                            >{t('services')}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">
@@ -49,7 +49,7 @@ const PageContent =  ({service}:{service:any}) => {
                                 <div className="content clearfix" style={{display:"flex", flexWrap:"wrap", gap:20}}>
                                     {typeof  service !== 'string' && service.map((item:any) => {
                                         const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                        return  <h5 key={item.id} style={{marginTop: "0px", textAlign:"center"}}><Link
+                                        return  <h5  key={item.id} style={{marginTop: "0px", textAlign:"center", maxWidth:150}}><Link
                                             href={`/services/${item.id}`}><Image
                                             src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}
                                             alt="avtomatik-siqnal" style={{width:150, height:119}} width="150" height="119"/></Link><br/><Link

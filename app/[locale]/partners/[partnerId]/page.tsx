@@ -5,6 +5,23 @@ import React from "react";
 import {useLocale, useTranslations} from "next-intl";
 
 
+
+export async function generateMetadata(
+    {params: {partnerId,locale}}: { params: { partnerId: any, locale:string } },
+) {
+
+    // fetch data
+    const partner = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `partner/${partnerId}`, {cache: 'no-store',})).json()).partner
+
+    const translatedItem = partner.translations.find((item: any) => item.locale === locale)
+
+    return {
+        title: translatedItem.name,
+    }
+}
+
+
+
 const Page = async ({params: {partnerId}}: { params: { partnerId: string } }) => {
     const partner = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `partner/${partnerId}`, {cache: 'no-store',})).json()).partner
     return <PageContent partner={partner}/>

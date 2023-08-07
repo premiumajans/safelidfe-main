@@ -4,6 +4,20 @@ import React from "react";
 import parse from "html-react-parser";
 
 
+export  async  function generateMetadata({params:{locale}}) {
+
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+
+    const translatedItem = about[2] ? about[2].translations.find((item: any) => item.locale === locale) : ''
+
+    return {
+        title: translatedItem?.title,
+
+    }
+}
+
+
+
 const Page = async () => {
     const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
     return <PageContent about={about} />
@@ -21,7 +35,7 @@ const PageContent = ({about}:{about:any}) => {
 
                     <section id="breadcrumbs">
                         <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about">{t('about')}</Link><strong>{t('sosial_response')}</strong></div>
+                            href="/about-company">{t('about')}</Link><strong>{t('sosial_response')}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">

@@ -11,6 +11,7 @@ module.exports = withNextIntl({
     typescript:{
         ignoreBuildErrors:true
     },
+    useFileSystemPublicRoutes: false,
     images: {
         domains: ['adminsafelife.pleskdemo.com', 'img.youtube.com', 'arsenalfire.az']
     }

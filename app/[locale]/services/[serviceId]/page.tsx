@@ -3,6 +3,23 @@ import parse from "html-react-parser";
 import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
 
+export async function generateMetadata(
+    {params: {serviceId,locale}}: { params: { serviceId: any, locale:string } },
+) {
+
+    // fetch data
+    const service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `service/${serviceId}`,{cache:'no-store',})).json()).service
+
+    const translatedItem = service.translations.find((item: any) => item.locale === locale)
+
+    return {
+        title: translatedItem.name,
+        openGraph: {
+            images: [service.photo],
+        },
+    }
+}
+
 
 const Page = async ({params:{serviceId}}:{params:{serviceId:any}}) => {
     const service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + `service/${serviceId}`,{cache:'no-store',})).json()).service

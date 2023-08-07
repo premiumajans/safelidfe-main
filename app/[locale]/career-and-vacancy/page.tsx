@@ -4,6 +4,19 @@ import Link from "next/link";
 import parse from "html-react-parser";
 
 
+export  async  function generateMetadata({params:{locale}}) {
+
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+
+    const translatedItem = about[3] ? about[3].translations.find((item: any) => item.locale === locale) : ''
+
+    return {
+        title: translatedItem?.title,
+
+    }
+}
+
+
 const Page = async () => {
     const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about', {cache: 'no-store',})).json()).about
     return <PageContent about={about}/>
