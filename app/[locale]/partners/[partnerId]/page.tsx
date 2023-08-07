@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import React from "react";
 import {useLocale, useTranslations} from "next-intl";
+import Gallery from "@/Components/Gallery";
 
 
 
@@ -76,6 +77,7 @@ const PageContent = ({partner}: { partner: any }) => {
                                             {translatedItem.description ? parse(translatedItem.description) : ''}
                                         </div>
                                     </p>
+                                    <Gallery imgs={partner.photos.map((item:any) => [{...item, photo:process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}])}/>
 
                                 </div>
 

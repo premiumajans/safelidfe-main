@@ -31,38 +31,43 @@ const PageContent = ({video}:{video:any}) => {
 
                         <div id="system">
 
-                            {typeof video !== "string" && video.map((item:any) => {
-                                const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                return <div key={item.id} className="items items-col-3 grid-block">
-                                    <div className="grid-box width33">
-                                        <article className="item">
 
-                                            <header>
+                            <div className="items items-col-2 grid-block">
+                                {typeof video !== "string" && video.map((item:any) => {
+                                    const translatedItem = item.translations.find((item:any) => item.locale === locale)
+                                    return <Link  key={item.id} href={`/photo-gallery/${item.id}`}>
+                                        <div style={{marginTop:10}}  className="grid-box width25">
+                                            <article className="item"
+                                            >
 
-
-                                                <h1 className="title">
-                                                    <a title={translatedItem.name}>{translatedItem.name}</a>
-                                                </h1>
+                                                <header>
 
 
-                                            </header>
+                                                    <h1 className="title">
+                                                        <Link href={`/photo-gallery/${item.id}`}
+                                                              title={translatedItem.name}>{translatedItem.name}</Link>
+                                                    </h1>
 
 
-                                            <div className="content clearfix"><p><a
-                                                href={item.link}><Image width={200} height={100}
-                                                src={`https://img.youtube.com/vi/${item.link.split('/')[item.link.split('/').length - 1 ].toString()}/maxresdefault.jpg`}
-                                                alt="bakubuild12"/></a></p>
-                                            </div>
+                                                </header>
 
 
-                                        </article>
-                                    </div>
+                                                <div className="content clearfix"><p><a
+                                                    href={item.link}><img width={200} height={100}
+                                                                          src={`https://img.youtube.com/vi/${item.link.split('/')[item.link.split('/').length - 1 ].toString()}/maxresdefault.jpg`}
+                                                                          alt="bakubuild12"/></a></p>
+                                                </div>
 
-                                </div>
 
-                            })}
+                                            </article>
+                                        </div>
+                                    </Link>
+                                })}
+
+                            </div>
 
                         </div>
+
                     </section>
 
 

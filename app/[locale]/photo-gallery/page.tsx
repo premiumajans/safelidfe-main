@@ -32,39 +32,40 @@ const PageContent = ({photo}:{photo:any}) => {
 
                         <div id="system">
 
-                            {typeof  photo !== "string" && photo.map((item:any) => {
-                                const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                return <Link key={item.id} href={`/photo-gallery/${item.id}`}>
 
-                                    <div  className="items items-col-3 grid-block">
-                                        <div className="grid-box width33">
-                                            <article className="item">
+                            <div className="items items-col-2 grid-block">
+                                {typeof photo !== "string" && photo.map((item:any) => {
+                                    const translatedItem = item.translations.find((item:any) => item.locale === locale)
+                                    return <Link  key={item.id} href={`/photo-gallery/${item.id}`}>
+                                        <div style={{marginTop:10}}  className="grid-box width25">
+                                            <article className="item"
+                                            >
 
                                                 <header>
 
 
                                                     <h1 className="title">
-                                                        <a href=""
-                                                           title="Baku Build 2012">{translatedItem.name}</a>
+                                                        <Link href={`/photo-gallery/${item.id}`}
+                                                              title={translatedItem.name}>{translatedItem.name}</Link>
                                                     </h1>
 
 
                                                 </header>
 
 
-                                                <div className="content clearfix"><p><a
-                                                    href=""><Image width={200} height={100}
-                                                                   src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}
-                                                                   alt="bakubuild12"/></a></p>
+                                                <div className="content clearfix"><p>
+                                                    <Image
+                                                        style={{border: "1px solid #ff0000",width:300, height:225}} src={process.env['NEXT_MAIN_PATH_WITHOUT_API'] + item.photo}
+                                                        alt="14-s" width="150" height="216"/></p>
                                                 </div>
 
 
                                             </article>
                                         </div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                })}
 
-                            })}
+                            </div>
 
                         </div>
                     </section>

@@ -31,7 +31,7 @@ const Gallery = ({imgs}) => {
                               setToggler(!toggler);
                           }}
                           data-lightbox="group:9-64c75ce4b6917" data-spotlight="on"
-                          style={{position: "relative", overflow: "hidden", cursor:"pointer", objectFit:"fill"}}><Image style={{width:180, height:100}}
+                          style={{position: "relative", overflow: "hidden", cursor:"pointer"}}><Image  style={{width:180, height:100,objectFit:"contain"}}
                     src={item[0].photo} width="180" height="100"
                     alt="1"/>
                     <div className="overlay-default"
