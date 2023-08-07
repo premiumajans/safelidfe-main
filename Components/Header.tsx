@@ -6,15 +6,25 @@ import HeaderSearch from "@/Components/HeaderSearch";
 
 
 const Header = async () => {
-    const service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'service')).json()).service
-    const product = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'product')).json()).product
-    const settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings')).json())
+    let service, product, settings
+    try {
+        service = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'service')).json()).service
+
+        product = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'product')).json()).product
+
+        settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings')).json())
+    } catch (e) {
+       if(e instanceof  Error) {
+           throw new Error(e.message)
+       } else {
+           throw e
+       }
+    }
 
     return <HeaderContent service={service} product={product} settings={settings}/>
 }
 
 const HeaderContent = ({product, service, settings}: { product: any, service: any, settings: any }) => {
-
 
 
     const t = useTranslations("Index")
@@ -221,7 +231,6 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
         <div id="block-top-a">
             <div>
                 <div>
-
 
 
                 </div>
