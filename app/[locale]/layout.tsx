@@ -28,8 +28,8 @@ export default function RootLayout({
 
 
   return <>
-    <html lang="en">
-    <head lang={locale}>
+    <html lang={locale}>
+    <head >
       <meta charSet="utf-8"/>
       <meta name="authors" content="Taleh Maharramov, Elgiz Ismayilov"/>
       <meta name="keywords" content="Safe Life"/>
