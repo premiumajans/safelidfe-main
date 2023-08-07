@@ -58,7 +58,7 @@ const PageContent = ({results,keywords}:{results:any,keywords:string}) => {
                                                 <div className="content clearfix" style={{display:"flex", flexWrap:"wrap", gap:20}}>
                                                     {typeof  item[1] !== 'string' && item[1].map((internalItem:any) => {
                                                         const translatedItem = internalItem.translations.find((item:any) => item.locale === locale)
-                                                        return  <Link key={internalItem.id} href={`/${item[0]}/${internalItem.id}`}>
+                                                        return  <Link style={{width:150}} key={internalItem.id} href={`/${item[0]}/${internalItem.id}`}>
                                                             <h5  style={{marginTop: "0px", textAlign:"center"}}><Link
                                                                 href={`/${item[0]}/${internalItem.id}`}>
                                                                 {internalItem?.photo?.length ? <Image

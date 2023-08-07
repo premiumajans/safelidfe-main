@@ -29,6 +29,7 @@ function HomeContent({slider, partners, about, sertificate}: {
     about: any,
     sertificate: any
 }) {
+    console.log(partners, about, sertificate)
     const locale = useLocale()
     const t = useTranslations('Index')
 

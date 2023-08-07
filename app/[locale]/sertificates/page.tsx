@@ -38,8 +38,8 @@ const PageContent =  ({sertificate}:{sertificate:any}) => {
                             <div className="items items-col-2 grid-block">
                                 {typeof sertificate !== "string" && sertificate.map((item:any) => {
                                     const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                    return <Link key={item.id} href={`/sertificates/${item.id}`}>
-                                        <div  className="grid-box width25">
+                                    return <Link  key={item.id} href={`/sertificates/${item.id}`}>
+                                        <div style={{marginTop:10}}  className="grid-box width25">
                                             <article className="item"
                                             >
 

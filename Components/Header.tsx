@@ -15,6 +15,8 @@ const Header = async () => {
 
 const HeaderContent = ({product, service, settings}: { product: any, service: any, settings: any }) => {
 
+
+
     const t = useTranslations("Index")
     const locale = useLocale()
 
@@ -47,17 +49,17 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                     <tr>
                                         <td style={{display: 'flex'}} align="right" valign="top">
                                             <Link locale={'az'}
-                                                  href="/az">
+                                                  href="/">
                                                 <Image
                                                     src="https://arsenalfire.az/images/stories/head/lang/az.png"
                                                     alt="az"
                                                     width="16" height="11"/></Link>
-                                            &nbsp;&nbsp;<Link locale={'en'} href="/en">
+                                            &nbsp;&nbsp;<Link locale={'en'} href="/">
                                             <Image
                                                 src="https://arsenalfire.az/images/stories/head/lang/gb.png" alt="en"
                                                 width="16" height="11"/></Link>
                                             &nbsp;&nbsp;
-                                            <Link locale={'ru'} href="/ru">
+                                            <Link locale={'ru'} href="/">
                                                 <Image
                                                     src="https://arsenalfire.az/images/stories/head/lang/ru.png"
                                                     alt="ru"
