@@ -22,9 +22,7 @@ export default function RootLayout({
   const locale = useLocale();
 
 
-  if (params.locale !== locale) {
-    notFound();
-  }
+
 
 
   return <>
