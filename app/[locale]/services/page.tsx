@@ -24,7 +24,7 @@ const PageContent =  ({service}:{service:any}) => {
 
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link>{t('services')}<strong
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><strong
                         >{t('services')}</strong>
                         </div>
                     </section>
