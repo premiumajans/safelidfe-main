@@ -40,7 +40,7 @@ const PageContent = ({project,page }: { project: any, page:number }) => {
 
                                 {typeof project !== 'string' ? project.slice((page - 1) * 10, (page - 1) * 10 + 10).map((item: any) => {
                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
-                                    return <Link key={item.id} href={`/projects/${item.id}`}>
+                                    return <Link key={item.id} href={`/${locale}/projects/${item.id}`} >
                                         <div className="grid-box width33">
                                             <article className="item">
 

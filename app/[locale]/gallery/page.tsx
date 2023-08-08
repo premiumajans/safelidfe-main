@@ -1,11 +1,12 @@
 import Link from "next/link";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 
 
 
 const Page = ({about}: { about: any }) => {
     const t = useTranslations('Index')
+    const locale = useLocale()
     return <>
         <div id="block-main">
 
@@ -45,11 +46,11 @@ const Page = ({about}: { about: any }) => {
                                         <tr>
                                             <td>
                                                 <h2><Link
-                                                    href="/photo-gallery">{t('photo_gallery')}</Link></h2>
+                                                    href={`/${locale}/photo-gallery`}>{t('photo_gallery')}</Link></h2>
                                             </td>
                                             <td>
                                                 <h2><Link
-                                                    href="/video-gallery">{t('video_gallery')}</Link></h2>
+                                                    href={`/${locale}/video-gallery`}>{t('video_gallery')}</Link></h2>
                                             </td>
                                         </tr>
                                         </tbody>

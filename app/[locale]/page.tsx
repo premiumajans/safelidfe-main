@@ -97,7 +97,7 @@ function HomeContent({slider, partners, about, sertificate}: {
 
                             <Marquee pauseOnHover={true} direction={'right'}>
                                 {typeof sertificate !== 'string' ? sertificate.map((item: any) => {
-                                    return <Link key={item.id} href={`/sertificates/${item.id}`}>
+                                    return <Link key={item.id} href={`/${locale}/sertificates/${item.id}`}>
                                         <Image width={400}
                                                height={400}
                                                src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}
@@ -118,7 +118,7 @@ function HomeContent({slider, partners, about, sertificate}: {
 
                             <Marquee pauseOnHover={true}>
                                 {typeof partners !== 'string' ? partners.map((item: any) => {
-                                    return <Link key={item.id} href={`/partners/${item.id}`}>
+                                    return <Link key={item.id} href={`/${locale}/partners/${item.id}`}>
                                         <Image width={400}
                                                height={400}
                                                src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}

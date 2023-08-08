@@ -1,12 +1,12 @@
 import Link from "next/link";
 import {useLocale, useTranslations} from "next-intl";
 import parse from "html-react-parser";
+import React from "react";
 
 
+export async function generateMetadata({params: {locale}}) {
 
-export  async  function generateMetadata({params:{locale}}) {
-
-    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about', {cache: 'no-store',})).json()).about
 
     const translatedItem = about[0] ? about[0].translations.find((item: any) => item.locale === locale) : ''
 
@@ -17,20 +17,18 @@ export  async  function generateMetadata({params:{locale}}) {
 }
 
 
-
 const Page = async () => {
-    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about',{cache:'no-store',})).json()).about
+    const about = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'about', {cache: 'no-store',})).json()).about
     return <>
-        <PageContent about={about} />
+        <PageContent about={about}/>
     </>
 
 }
 
-const PageContent = ({about}:{about:any}) => {
+const PageContent = ({about}: { about: any }) => {
     const t = useTranslations('Index')
     const locale = useLocale()
     return <>
-
 
 
         <div id="block-main">
@@ -41,9 +39,11 @@ const PageContent = ({about}:{about:any}) => {
 
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about-company">{t('about')}</Link><strong>{t('about_company')}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/about-company`}>{t('about')}</Link><strong>{t('about_company')}</strong>
+                        </div>
                     </section>
+
 
                     <section id="content" className="grid-block">
 
@@ -63,7 +63,7 @@ const PageContent = ({about}:{about:any}) => {
                                 </header>
 
                                 <div className={'content clearfix'}>
-                                    {about[0] && parse(about[0].translations.find((item:any) => item.locale === locale).description)}
+                                    {about[0] && parse(about[0].translations.find((item: any) => item.locale === locale).description)}
                                 </div>
 
                             </article>

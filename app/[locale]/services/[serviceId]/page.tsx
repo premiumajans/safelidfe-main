@@ -2,6 +2,7 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
+import React from "react";
 
 export async function generateMetadata(
     {params: {serviceId,locale}}: { params: { serviceId: any, locale:string } },
@@ -43,9 +44,10 @@ const PageContent =  ({service}:{service:any}) => {
                 <div id="maininner" className="grid-box" style={{minHeight: "549"}}>
 
 
+
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/services">{t('services')}</Link><strong>{translatedItem.name}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/services`}>{t('services')}</Link><strong>{translatedItem.name}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">

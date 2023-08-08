@@ -48,9 +48,7 @@ const PageContent = ({product}:{product:any}) => {
                                 <div className="content clearfix" style={{display:"flex", gap:20,flexWrap:"wrap"}}>
                                     {typeof product !== 'string' && product.map((item:any) => {
                                         const translatedItem = item.translations.find((item:any) => item.locale === locale)
-                                        return <Link  key={item.id} href={`/products/${item.id}`}>
-                                            <a
-                                                href=""></a>
+                                        return <Link  key={item.id} href={`/${locale}/products/${item.id}`}>
                                             <h5 style={{marginTop: "0px", fontWeight:'bold'}}><a
                                                 href="">{translatedItem.name}</a></h5>
                                         </Link>

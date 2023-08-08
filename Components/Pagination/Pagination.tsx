@@ -1,10 +1,12 @@
 'use client'
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 
 const Pagination = ({data, pagination}: {
     data: any,
     pagination: any
 }) => {
+    const path = usePathname()
     const generatePagination = (result: any) => {
 
         const paginationList = [];
@@ -14,7 +16,7 @@ const Pagination = ({data, pagination}: {
         for (let i = 1; i <= length; i++) {
             if (length <= 2 || Math.abs(pagination - i) <= maxVisiblePages || i === 1 || i === length) {
                 paginationList.push(
-                    <Link href={`/projects?page=${i}`} title={i.toString()}>{i}</Link>
+                    <Link href={`${path}?page=${i}`} title={i.toString()}>{i}</Link>
                 );
             } else if (paginationList[paginationList.length - 1]?.key !== 'dots') {
                 paginationList.push(<li key="dots">...</li>);
@@ -29,12 +31,12 @@ const Pagination = ({data, pagination}: {
         {Math.ceil(data.length / 10) > 1 ?
             <div className="pagination">
                 <Link className="previous"
-                      href={`/projects?page=${(+pagination - 1 >= 1 ) ? +pagination - 1 : pagination }`}
+                      href={`${path}?page=${(+pagination - 1 >= 1 ) ? +pagination - 1 : pagination }`}
                       title="<"> {"<"} </Link>
                 {generatePagination(data)}
 
                 <Link className="next"
-                      href={`/projects?page=${(+pagination + 1 <= Math.ceil(data.length / 10) ) ? +pagination + 1 : pagination }`}
+                      href={`${path}?page=${(+pagination + 1 <= Math.ceil(data.length / 10) ) ? +pagination + 1 : pagination }`}
                       title="»"> {">"} </Link>
             </div>
             : ''}

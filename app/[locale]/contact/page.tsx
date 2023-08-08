@@ -20,11 +20,12 @@ const PageContent = ({settings}: { settings: any }) => {
 
                 <div id="maininner" className="grid-box" style={{minHeight: "782px"}}>
 
-
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link
-                            href="/">SafeLife.az</Link><strong>{t('contact')}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><strong>{t('contact')}</strong>
+                        </div>
                     </section>
+
+
 
                     <section id="content" className="grid-block">
 

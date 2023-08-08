@@ -2,6 +2,7 @@ import Image from "next/image";
 import parse from 'html-react-parser'
 import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
+import React from "react";
 
 
 
@@ -47,9 +48,11 @@ const PageContent = ({sertificate}: { sertificate: any }) => {
                 <div id="maininner" className="grid-box" style={{minHeight: "752px"}}>
 
 
+
+
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/sertificates">{t('sertificates_licences')}</Link><strong>{translatedItem.name}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/sertificates`}>{t('sertificates_licences')}</Link><strong>{translatedItem.name}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">

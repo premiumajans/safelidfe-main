@@ -42,11 +42,14 @@ const PageContent = ({partner}: { partner: any }) => {
 
                 <div id="maininner" className="grid-box" style={{minHeight: "549"}}>
 
-
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/partners">{t('partners')}</Link><strong>{translatedItem.name}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/partners`}>{t('partners')}</Link><strong>{translatedItem.name}</strong>
+                        </div>
                     </section>
+
+
+
 
                     <section id="content" className="grid-block">
 

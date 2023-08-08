@@ -33,9 +33,9 @@ const PageContent = ({about}: { about: any }) => {
                 <div id="maininner" className="grid-box" style={{minHeight: "285px"}}>
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about-company">{t('about')}</Link><strong>{t('careers')}</strong></div>
-                    </section>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/about-company`}>{t('about')}</Link><strong>{t('careers')}</strong></div>
+z                    </section>
 
                     <section id="content" className="grid-block">
 

@@ -34,8 +34,8 @@ const PageContent = ({about}:{about:any}) => {
 
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about-company">{t('about')}</Link><strong>{t('sosial_response')}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/about-company`}>{t('about')}</Link><strong>{t('sosial_response')}</strong></div>
                     </section>
 
                     <section id="content" className="grid-block">

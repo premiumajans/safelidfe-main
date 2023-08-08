@@ -2,6 +2,7 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
+import React from "react";
 
 
 const Page = async ({params: {projectId}}: { params: { projectId: any } }) => {
@@ -26,11 +27,13 @@ const PageContent = ({project}: { project: any }) => {
 
                 <div id="maininner" className="grid-box" style={{minHeight: "250px"}}>
 
-
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/projects?page=1">{t('projects')}</Link><strong>{translatedItem?.name}</strong></div>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/projects?page=1`}>{t('projects')}</Link><strong>{translatedItem?.name}</strong>
+                        </div>
                     </section>
+
+
 
                     <section id="content" className="grid-block">
 

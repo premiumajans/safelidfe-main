@@ -14,11 +14,11 @@ const Header = async () => {
 
         settings = (await (await fetch(process.env["NEXT_MAIN_PATH"] + 'settings')).json())
     } catch (e) {
-       if(e instanceof  Error) {
-           throw new Error(e.message)
-       } else {
-           throw e
-       }
+        if (e instanceof Error) {
+            throw new Error(e.message)
+        } else {
+            throw e
+        }
     }
 
     return <HeaderContent service={service} product={product} settings={settings}/>
@@ -43,7 +43,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                     <div id="headerbar" className="grid-block">
 
 
-                        <Link id="logo" href="/"><p style={{margin: 0}}><Image width={300} height={300} style={{
+                        <Link id="logo" href={`/${locale}`}><p style={{margin: 0}}><Image width={300} height={300} style={{
                             width: 150,
                             height: 'max-content',
                             objectFit: 'cover'
@@ -59,17 +59,17 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                     <tr>
                                         <td style={{display: 'flex'}} align="right" valign="top">
                                             <Link locale={'az'}
-                                                  href="/">
+                                                  href="/az">
                                                 <Image
                                                     src="https://arsenalfire.az/images/stories/head/lang/az.png"
                                                     alt="az"
                                                     width="16" height="11"/></Link>
-                                            &nbsp;&nbsp;<Link locale={'en'} href="/">
+                                            &nbsp;&nbsp;<Link locale={'en'} href="/en">
                                             <Image
                                                 src="https://arsenalfire.az/images/stories/head/lang/gb.png" alt="en"
                                                 width="16" height="11"/></Link>
                                             &nbsp;&nbsp;
-                                            <Link locale={'ru'} href="/">
+                                            <Link locale={'ru'} href="/ru">
                                                 <Image
                                                     src="https://arsenalfire.az/images/stories/head/lang/ru.png"
                                                     alt="ru"
@@ -98,7 +98,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
 
                                 <nav id="menu">
                                     <ul className="menu menu-dropdown">
-                                        <li className="level1 item94 parent "><Link href="/about-company"
+                                        <li className="level1 item94 parent "><Link href={`/${locale}/about-company`}
                                                                                     className="level1 parent"><span>{t('about')}</span></Link>
                                             <div className="dropdown columns1" style={{width: "190px"}}>
                                                 <div className="dropdown-bg">
@@ -106,7 +106,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                         <div className="width100 column">
                                                             <ul className="level2">
                                                                 <li className="level2 item95"><Link
-                                                                    href="/about-company"
+                                                                    href={`/${locale}/about-company`}
                                                                     className="level2"><span>{t('about_company')}</span></Link>
                                                                 </li>
                                                                 <li className="level2 item96"><Link
@@ -114,11 +114,11 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                                     className="level2"><span>{t('our_missions')}</span></Link>
                                                                 </li>
                                                                 <li className="level2 item97"><Link
-                                                                    href="/social-responsibility"
+                                                                    href={`/${locale}/social-responsibility`}
                                                                     className="level2"><span>{t('sosial_response')}</span></Link>
                                                                 </li>
                                                                 <li className="level2 item98"><Link
-                                                                    href="/sertificates"
+                                                                    href={`/${locale}/sertificates`}
                                                                     className="level2"><span>{t('sertificates_licences')}</span></Link>
                                                                 </li>
                                                                 <li className="level2 item100"><Link
@@ -131,7 +131,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className="level1 item101 parent"><Link href="/services"
+                                        <li className="level1 item101 parent"><Link href={`/${locale}/services`}
                                                                                     className="level1 parent"><span>{t('services')}</span></Link>
                                             <div className="dropdown columns3" style={{width: 'max-content'}}>
                                                 <div className="dropdown-bg">
@@ -141,9 +141,9 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                                 {typeof service !== 'string' ? service.map((item: any) => {
                                                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
                                                                     return <Link key={item.id}
-                                                                                 href={`/services/${item.id}`}>
+                                                                                 href={`/${locale}/services/${item.id}`}>
                                                                         <li className="level2 item118"><Link
-                                                                            href={`/services/${item.id}`}
+                                                                            href={`/${locale}/services/${item.id}`}
                                                                             className="level2"><span>{translatedItem.name}</span></Link>
                                                                         </li>
                                                                     </Link>
@@ -154,7 +154,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className="level1 item117 parent"><Link href="/products"
+                                        <li className="level1 item117 parent"><Link href={`/${locale}/products`}
                                                                                     className="level1 parent"><span>{t('products')}</span></Link>
                                             <div className="dropdown columns2" style={{width: 'max-content'}}>
                                                 <div className="dropdown-bg">
@@ -164,9 +164,10 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                                 {typeof product !== 'string' ? product.map((item: any) => {
                                                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
                                                                     return <Link key={item.id}
-                                                                                 href={`/products/${item.id}`}>
+                                                                                 href={`/${locale}/products/${item.id}`}
+                                                                    >
                                                                         <li className="level2 item118"><Link
-                                                                            href={`/products/${item.id}`}
+                                                                            href={`/${locale}/products/${item.id}`}
                                                                             className="level2"><span>{translatedItem.name}</span></Link>
                                                                         </li>
                                                                     </Link>
@@ -178,11 +179,11 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 </div>
                                             </div>
                                         </li>
-                                        <li className="level1 item131"><Link href="/projects?page=1"
+                                        <li className="level1 item131"><Link href={`/${locale}/projects?page=1`}
                                                                              className="level1"><span>{t('projects')}</span></Link>
                                         </li>
 
-                                        <li className="level1 item117 parent"><Link href="/gallery"
+                                        <li className="level1 item117 parent"><Link href={`/${locale}/gallery`}
                                                                                     className="level1 parent"><span>{t('gallery')}</span></Link>
                                             <div className="dropdown columns2" style={{width: 'max-content'}}>
                                                 <div className="dropdown-bg">
@@ -190,12 +191,12 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                         <div className="column">
                                                             <ul style={{width: 'max-content'}} className="level2">
                                                                 <li className="level2 item118"><Link
-                                                                    href={`/photo-gallery`}
+                                                                    href={`/${locale}/photo-gallery`}
                                                                     className="level2"><span>{t('photo_gallery')}</span></Link>
                                                                 </li>
 
                                                                 <li className="level2 item118"><Link
-                                                                    href={`/video-gallery`}
+                                                                    href={`/${locale}/video-gallery`}
                                                                     className="level2"><span>{t('video_gallery')}</span></Link>
                                                                 </li>
 
@@ -206,10 +207,10 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                             </div>
                                         </li>
 
-                                        <li className="level1 item99"><Link href="/partners"
+                                        <li className="level1 item99"><Link href={`/${locale}/partners`}
                                                                             className="level1"><span>{t('partners')}</span></Link>
                                         </li>
-                                        <li className="level1 item136"><Link href="/contact"
+                                        <li className="level1 item136"><Link href={`/${locale}/contact`}
                                                                              className="level1"><span>{t('contact')}</span></Link>
                                         </li>
                                     </ul>

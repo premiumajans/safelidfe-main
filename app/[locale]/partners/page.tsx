@@ -24,10 +24,13 @@ const PageContent = ({partners}: { partners: any }) => {
 
 
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><strong>
-                            {t('partners')}</strong>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/partners`}>{t('partners')}</Link>
                         </div>
                     </section>
+
+
+
 
                     <section id="content" className="grid-block">
 

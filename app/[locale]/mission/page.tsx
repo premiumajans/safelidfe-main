@@ -32,12 +32,16 @@ const PageContent = ({about}:{about:any}) => {
 
                 <div id="maininner" className="grid-box" style={{minHeight: "564"}}>
 
-
                     <section id="breadcrumbs">
-                        <div className="breadcrumbs"><Link href="/">SafeLife.az</Link><Link
-                            href="/about-company">{t('about')}</Link><strong>{t('our_missions')}</strong>
+                        <div className="breadcrumbs"><Link href={`/${locale}`}>SafeLife.az</Link><Link
+                            href={`/${locale}/about-company`}>{t('about')}</Link><strong>{t('our_missions')}</strong>
                         </div>
                     </section>
+
+
+
+
+
 
                     <section id="content" className="grid-block">
 
