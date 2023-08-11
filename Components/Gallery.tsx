@@ -14,7 +14,7 @@ const Gallery = ({imgs}) => {
             sources={imgs?.map((el, index) => {
                 return <Image style={{objectFit: 'contain'}} width={1000} height={1000}
                               key={Math.random()} src={el[0].photo}
-                              alt={}/>
+                              alt={'imgs'}/>
             })}
             sourceIndex={slideIndex}/>
 
