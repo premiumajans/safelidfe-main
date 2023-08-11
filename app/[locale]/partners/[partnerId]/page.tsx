@@ -77,7 +77,7 @@ const PageContent = ({partner}: { partner: any }) => {
                                             width="150"
                                             src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + partner.photo}/>
                                         <div>
-                                            {translatedItem.description ? parse(translatedItem.description) : ''}
+                                            {translatedItem.description.length ? parse(translatedItem.description) : ''}
                                         </div>
                                     </p>
                                     <Gallery imgs={partner.photos.map((item:any) => [{...item, photo:process.env["NEXT_MAIN_PATH_WITHOUT_API"] + item.photo}])}/>

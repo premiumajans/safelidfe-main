@@ -64,8 +64,9 @@ const PageContent = ({results,keywords}:{results:any,keywords:string}) => {
                                                                 {internalItem?.photo?.length ? <Image
                                                                     src={process.env["NEXT_MAIN_PATH_WITHOUT_API"] + internalItem.photo}
                                                                     alt="avtomatik-siqnal" style={{width:150, height:119, objectFit:'contain'}} width="150" height="119"/> : ''}
-                                                            </Link><br/><Link
-                                                                href={`/${item[0]}/${internalItem.id}`} style={{fontWeight:'bold'}}>{translatedItem.name}</Link></h5>
+                                                            </Link><br/>
+                                                                {item[0] !== 'partners' ? <Link href={`/${item[0]}/${internalItem.id}`} style={{fontWeight:'bold'}}>{translatedItem.name}</Link> : ''}
+                                                            </h5>
                                                         </Link>
                                                     })}
 

@@ -80,7 +80,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                             href={`tel:${settings.find((item: any) => item.name === 'phone').link}`}>{settings.find((item: any) => item.name === 'phone').link}</a>
                                             <br/>
                                             <strong>{t('email')}:</strong><a
-                                            href={`tel:${settings.find((item: any) => item.name.indexOf('email') >= 0).link}`}>{settings.find((item: any) => item.name.indexOf('email') >= 0).link}</a>
+                                            href={`mailto:${settings.find((item: any) => item.name.indexOf('email') >= 0).link}`}>{settings.find((item: any) => item.name.indexOf('email') >= 0).link}</a>
 
                                         </td>
                                         <td align="right" valign="top">&nbsp;</td>
@@ -97,10 +97,10 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                             <div className="grid-block">
 
                                 <nav id="menu">
-                                    <ul className="menu menu-dropdown">
+                                    <ul style={{display:'contents'}} className="menu menu-dropdown">
                                         <li className="level1 item94 parent "><Link href={`/${locale}/about-company`}
                                                                                     className="level1 parent"><span>{t('about')}</span></Link>
-                                            <div className="dropdown columns1" style={{width: "190px"}}>
+                                            <div className="dropdown columns1" >
                                                 <div className="dropdown-bg">
                                                     <div>
                                                         <div className="width100 column">
@@ -137,7 +137,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 <div className="dropdown-bg">
                                                     <div>
                                                         <div className="width33 column">
-                                                            <ul style={{width: 'max-content'}} className="level2">
+                                                            <ul  className="level2">
                                                                 {typeof service !== 'string' ? service.map((item: any) => {
                                                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
                                                                     return <Link key={item.id}
@@ -160,7 +160,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 <div className="dropdown-bg">
                                                     <div>
                                                         <div className="column">
-                                                            <ul style={{width: 'max-content'}} className="level2">
+                                                            <ul className="level2">
                                                                 {typeof product !== 'string' ? product.map((item: any) => {
                                                                     const translatedItem = item.translations.find((item: any) => item.locale === locale)
                                                                     return <Link key={item.id}
@@ -189,7 +189,7 @@ const HeaderContent = ({product, service, settings}: { product: any, service: an
                                                 <div className="dropdown-bg">
                                                     <div>
                                                         <div className="column">
-                                                            <ul style={{width: 'max-content'}} className="level2">
+                                                            <ul style={{display:'contents'}}  className="level2">
                                                                 <li className="level2 item118"><Link
                                                                     href={`/${locale}/photo-gallery`}
                                                                     className="level2"><span>{t('photo_gallery')}</span></Link>

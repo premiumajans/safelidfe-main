@@ -94,8 +94,14 @@ body {
   width: 1000px;
 }
 
-.level1 {
 
+
+.level1 {
+  .level2 {
+    span {
+      font-size: 13px !important;
+    }
+  }
   span {
     font-size: 17px !important;
 
@@ -116,4 +122,15 @@ body {
   }
 }
 
+
+
+.menu-dropdown a.level2 > span, .menu-dropdown span.level2 > span {
+  width: 290px;
+}
+
+.menu, .menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+}
 
